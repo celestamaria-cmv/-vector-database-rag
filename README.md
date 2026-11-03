@@ -6,19 +6,19 @@ using LangChain and ChromaDB.
 
 ## Team Responsibilities
 
-### Person 1: Document Processing & Embeddings
+### Person 1(Celesta Maria): Document Processing & Embeddings
 - Document loading
 - Text preprocessing
 - Text chunking
 - Embedding generation
 
-### Person 2: Vector Database & Retrieval
+### Person 2(Shalika): Vector Database & Retrieval
 - ChromaDB setup
 - Vector storage
 - Similarity search
 - Top-K retrieval
 
-### Person 3: RAG, UI & Evaluation
+### Person 3(Daved Tawdros): RAG, UI & Evaluation
 - RAG pipeline
 - LLM integration
 - Prompt engineering
