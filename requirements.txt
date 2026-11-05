@@ -11,3 +11,4 @@ requests
 youtube-transcript-api
 python-dotenv
 streamlit
+langchain-groq

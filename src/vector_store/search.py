@@ -1,7 +1,8 @@
 def similarity_search(collection, query, model, k=3):
-    query_embedding=model.embed_query(query)
+    query_embedding = model.embed_query(query)
     results = collection.query(
-    query_embeddings=[query_embedding],
-    n_results=k
+        query_embeddings=[query_embedding],
+        n_results=k,
+        include=["documents", "metadatas", "distances"],
     )
     return results
