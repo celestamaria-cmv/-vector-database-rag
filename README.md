@@ -58,7 +58,7 @@ Build a Retrieval-Augmented Generation (RAG) pipeline using LangChain and Chroma
    GROQ_MODEL=openai/gpt-oss-120b
    ```
    Get a free key at console.groq.com. Never commit `.env`.
-3. Make sure the vector database exists in `data/` (see Notes).
+3. The prebuilt vector database is included in the repository at `data/chroma_db_test`, so no ingestion step is needed.
 
 ## Run
 Evaluation:
