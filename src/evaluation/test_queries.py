@@ -25,8 +25,10 @@ TEST_SET = [
         "expected_keyword": "cannot find"
     },
     {
-        "query": "What database is used for vector storage?",
-        "expected_keyword": "Chroma"
+        
+    "query": "According to the project documentation, which vector database is used to store the embeddings?",
+    "expected_keyword": "Chroma"
+
     }
 ]
 
@@ -41,7 +43,7 @@ def run_evaluation():
 
         print(f"Test {i}: {query}")
         try:
-            answer, docs = ask_rag(query, k=3)
+            answer, docs = ask_rag(query, k=5)
             print(f"  💡 Answer: {answer}")
             print(f"  📚 Retrieved Sources: {len(docs)} chunks")
 

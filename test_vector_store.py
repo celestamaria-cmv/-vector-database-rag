@@ -6,9 +6,26 @@ from src.vector_store.search import similarity_search
 
 # STEP 1: Load documents
 documents = load_all_documents(
-    pdf_paths=["data/pdfs/vector_database_rag_group_project_plan (1).pdf"],
-    web_urls=[],
-    youtube_urls=[]
+    pdf_paths=[
+        "data/pdfs/vector_database_rag_group_project_plan (1).pdf"
+    ],
+    web_urls=[
+        "https://www.pinecone.io/learn/retrieval-augmented-generation/"
+    ],
+    youtube_urls=[
+        "https://www.youtube.com/watch?v=pINxGpEPsKE"
+    ],
+    markdown_paths=[
+        "knowledge base/01_introduction_to_vector_databases.md",
+        "knowledge base/02_embeddings_and_text_vectors.md",
+        "knowledge base/03_chromadb_fundamentals.md",
+        "knowledge base/04_hnsw_indexing.md",
+        "knowledge base/05_similarity_and_distance_metrics.md",
+        "knowledge base/06_top_k_retrieval.md",
+        "knowledge base/07_vector_databases_vs_traditional_databases.md",
+        "knowledge base/08_vector_databases_in_rag.md",
+        "knowledge base/09_vector_database_evaluation_and_glossary.md",
+    ]
 )
 
 print("Documents loaded:", len(documents))
