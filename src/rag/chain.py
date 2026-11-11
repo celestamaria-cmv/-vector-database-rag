@@ -23,16 +23,39 @@ def get_rag_chain():
         groq_api_key=key,
     )
 
-    template = """You are an expert AI assistant. Answer the user's question using ONLY the provided context below. 
-If the answer cannot be found in the context, explicitly state: "I cannot find the answer in the provided documents." 
-Always cite the source document and page number where applicable based on the metadata.
+    
+    template = """
+You are an expert assistant specializing in vector databases,
+embeddings, ChromaDB, HNSW indexing, similarity search, and RAG.
 
-Context:
+Your task is to answer the user's question using the retrieved context.
+
+Instructions:
+
+1. Read ALL the provided context carefully.
+2. Identify information relevant to the user's question.
+3. Combine information from multiple context chunks when necessary.
+4. Understand the meaning of the question, not just exact keyword matches.
+5. The user may ask questions using different wording or technical terminology.
+   Match concepts by meaning rather than exact words.
+6. Explain technical concepts clearly and provide examples
+   when the context supports them.
+7. Do not invent facts or use information that is not supported by the context.
+8. If the context contains only partial information, explain what can
+   be answered and clearly identify what is missing.
+9. If the answer genuinely cannot be found in the provided context,
+   respond exactly:
+   "I cannot find the answer in the provided documents."
+10. Cite the source document and page number whenever available.
+
+Retrieved Context:
 {context}
 
-User Question: {question}
+User Question:
+{question}
 
-Answer:"""
+Answer:
+"""
     prompt = ChatPromptTemplate.from_template(template)
     return llm, prompt
 
@@ -64,7 +87,7 @@ def format_docs_from_results(results):
     return "\n\n---\n\n".join(formatted), documents
 
 
-def ask_rag(query: str, k: int = 3):
+def ask_rag(query: str, k: int = 5):
     model = get_embedding_model()
     collection = get_collection()
     raw_results = similarity_search(collection=collection, query=query, model=model, k=k)
